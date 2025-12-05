@@ -131,6 +131,10 @@ export default function DailyThought() {
         setSelected([]);
     }
 
+    const handleEdit = async () => {
+        
+    }
+
     /*  toggleCompetency Function
         Parameters: id - The id of the competency being toggled
         When a competency checkbox is clicked, add it or remove it from the selected array
@@ -199,8 +203,14 @@ export default function DailyThought() {
                     thoughts.slice(0, 5).map((thought, index) => (
                         <div 
                             key={index}
-                            className="bg-white/20 p-3 rounded-lg shadow-sm">
-                            <p className="text-lg">{thought.text}</p>
+                            className="bg-white/20 p-3 rounded-lg shadow-sm relative">
+                            <button className="absolute top-1 right-1 bg-blue-500 text-white p-2 rounded">
+                                Delete
+                            </button>
+                            <button className="absolute top-11 right-1 bg-blue-500 text-white p-2 rounded">
+                                Edit
+                            </button>
+                            <p className="text-lg pr-15 pb-6 break-all">{thought.text}</p>
                             <p className="text-sm opacity-80 mt-1">{thought.time}</p>  
                             {thought.competencies.length > 0 && (
                                 <p className="text-sm mt-1">
@@ -211,6 +221,7 @@ export default function DailyThought() {
                                     }
                                 </p>
                             )}  
+                            
                         </div>
                     ))
                 )}
